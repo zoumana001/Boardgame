@@ -117,15 +117,18 @@
 	</build>
 
 
-	 <distributionManagement>
-        <repository>
-            <id>mvn-ds-releases</id>
-            <url>http://54.204.113.82:8081/repository/mvn-ds-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://54.204.113.82:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+<repositories>
+    <repository>
+        <id>nexus</id>
+        <url>http:http://54.87.33.88:8081/repository/maven-public-/</url>
+    </repository>
+</repositories>
+
+<pluginRepositories>
+    <pluginRepository>
+        <id>nexus</id>
+        <url>http://http://54.87.33.88:8081/repository/maven-public-/</url>
+    </pluginRepository>
+</pluginRepositories>
 
 </project>
