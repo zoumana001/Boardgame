@@ -1,4 +1,4 @@
-name: Docker Image C
+name: Docker Image Ci
 on:
   push:
     branches: [ "main" ]
@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: zoum44/Boardgame-1:${{ github.sha }}
+          tags: zoum44/boardgame-1:${{ github.sha }}
