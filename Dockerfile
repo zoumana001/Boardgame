@@ -1,14 +1,14 @@
-# First stage: Build the application
-FROM adoptopenjdk/openjdk11:latest AS builder
-WORKDIR /app
-COPY . .
-RUN chmod +x mvnw
-RUN ./mvnw clean package  # or gradlew build for Gradle
 
-# Second stage: Create the runtime image
+FROM maven:3.8.4-openjdk-11 AS builder
+WORKDIR /app
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+COPY src ./src
+RUN mvn clean package -DskipTests
+
 FROM adoptopenjdk/openjdk11:latest
-ENV APP_HOME /usr/src/app
+ENV APP_HOME=/usr/src/app
 WORKDIR $APP_HOME
-COPY --from=builder /app/target/*.jar $APP_HOME/app.jar  # Adjust path as needed
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
