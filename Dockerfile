@@ -2,6 +2,7 @@
 FROM adoptopenjdk/openjdk11:latest AS builder
 WORKDIR /app
 COPY . .
+RUN chmod +x mvnw
 RUN ./mvnw clean package  # or gradlew build for Gradle
 
 # Second stage: Create the runtime image
