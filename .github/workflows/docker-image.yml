@@ -25,4 +25,4 @@ jobs:
         with:
             context: https://github.com/zoumana001/Boardgame.git#refs/heads/main  # or use a full commit hash
             push: true
-            tags: zoum44/boardgame-1:${{ github.sha }}
+            tags: zoum44/boardgame-2:${{ github.ref_name }}
