@@ -116,19 +116,14 @@
 		</plugins>
 	</build>
 
-
-<repositories>
+<distributionManagement>
     <repository>
-        <id>nexus</id>
-        <url>http:http://54.87.33.88:8081/repository/maven-public-/</url>
+        <id>nexus-releases</id>
+        <url>http://54.163.205.227:8081/repository/maven-releases/</url>
     </repository>
-</repositories>
 
-<pluginRepositories>
-    <pluginRepository>
-        <id>nexus</id>
-        <url>http://http://54.87.33.88:8081/repository/maven-public-/</url>
-    </pluginRepository>
-</pluginRepositories>
-
-</project>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <url>http://54.163.205.227:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
